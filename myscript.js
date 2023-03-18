@@ -1,37 +1,23 @@
 "strict";
+function getMiddle(s) {
+  let arr = s.length;
+  let eve0 = 0;
+  let eve1 = 0;
+  let odd1 = 0;
 
-function sumArray(array) {
-  let sum = 0;
-
-  if (Array.isArray(array) && array.length > 2 && !array.some(isNaN)) {
-    array.sort(function (a, b) {
-      return a - b;
-    });
-
-    for (let i = 1; i < array.length - 1; i++) {
-      sum = sum + array[i];
-    }
+  if (arr <= 2) {
+    //console.log(`The array length only has ${arr} positions.`)
+    return s[0];
+  } else if (Number.isInteger(arr / 2)) {
+    eve1 = arr / 2;
+    eve0 = arr / 2 - 1;
+    console.log(`${s[eve0]} and ${s[eve1]}`);
+    console.log(`${s[eve0]}${s[eve1]}`);
+    //console.log(`Array lengh (${arr}) is even, middle position; ${eve1} & ${eve0}.  The elements at this position are; ${(s[eve0])} and ${(s[eve1])}.`);
+    return `${s[eve0]}${s[eve1]}`;
   } else {
-    sum = 0;
+    odd1 = Math.floor(arr / 2);
+    //console.log(`Array length (${arr}) is odd, middle position; ${odd1}`);
+    return s[odd1];
   }
-  console.log(`The sum of array number is ${sum}`);
-  return sum;
 }
-
-//Array Testing
-let test1 = []; //Should equal 0
-let test2 = [null]; //Should equal 0
-let test3 = [5, 3, "hat"]; //should equal 0
-let test4 = [1, 2]; // Should equal 0
-let test5 = [null, 5, 1]; //Should return 1
-let test6 = [6, 2, 1, 8, 10]; //Should return 16
-let test7 = []; // should return 0
-
-//console.log(array(test2))
-sumArray(test1);
-sumArray(test2);
-sumArray(test3);
-sumArray(test4);
-sumArray(test5);
-sumArray(test6);
-sumArray(test7);
