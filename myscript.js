@@ -1,3 +1,4 @@
+@ -1,37 +1 @@
 "strict";
 
 function sumArray(array) {
