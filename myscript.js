@@ -1,30 +1,18 @@
-function isValidWalk(walk) {
-  //insert brilliant code here
-  let ns = 0;
-  let sw = 0;
-  console.log(walk.length);
-  for (let i = 0; i < walk.length; i++) {
-    if (walk[i] === "n") {
-      ns = ns + 1;
-    } else if (walk[i] === "s") {
-      ns = ns - 1;
-    } else if (walk[i] === "e") {
-      sw = sw + 1;
-    } else if (walk[i] === "w") {
-      sw = sw - 1;
-    }
+function likes(names) {
+  // TODO
+  if (names.length === 0) {
+    return "no one likes this";
+  } else if (names.length === 1) {
+    return `${names} likes this`;
+  } else if (names.length === 2) {
+    return `${names[0]} and ${names[1]} like this`;
+  } else if (names.length === 3) {
+    return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+  } else if (names.length > 3) {
+    return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
   }
-  return walk.length === 10 && ns === 0 && sw === 0
-    ? console.log("true")
-    : console.log("false");
 }
-
-// isValidWalk(["n", "s", "n", "s", "n", "s", "n", "s", "n", "s"]); //Should Return True
-
-// isValidWalk(["n", "n", "n", "s", "n", "s", "n", "s", "n", "s"]); //False
-
-// isValidWalk(["w"]);
-
-// isValidWalk(["w", "e", "w", "e", "w", "e", "w", "e", "w", "e", "w", "e"]);
-
-isValidWalk(["n", "s", "n", "s", "n", "s", "n", "s", "n", "s", "n", "s"]);
+console.log(likes([]));
+console.log(likes(["Peter"]));
+console.log(likes(["Peter", "Alex"]));
+console.log(likes(["Peter", "Alex", "Tom"]));
