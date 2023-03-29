@@ -1,19 +1,30 @@
-function copyList(l) {
-  //your code here
-  let arr = [];
-  console.log(`L is ${l}`);
-  console.log(`L is an array? ${Array.isArray(l)}`);
-  if (Array.isArray(l)) {
-    for (let i = 0; i < l.length; i++) {
-      arr.push(l[i]);
+function isValidWalk(walk) {
+  //insert brilliant code here
+  let ns = 0;
+  let sw = 0;
+  console.log(walk.length);
+  for (let i = 0; i < walk.length; i++) {
+    if (walk[i] === "n") {
+      ns = ns + 1;
+    } else if (walk[i] === "s") {
+      ns = ns - 1;
+    } else if (walk[i] === "e") {
+      sw = sw + 1;
+    } else if (walk[i] === "w") {
+      sw = sw - 1;
     }
-  } else {
-    console.log("undefined");
-    return undefined;
   }
-  console.log(`arr is: ${arr}`);
+  return walk.length === 10 && ns === 0 && sw === 0
+    ? console.log("true")
+    : console.log("false");
 }
 
-//copyList([1, 2, 3, 4]);
-copyList(1, 2, 3, 4);
-copyList([1, 29, 31, 90, 55, 88, 61, 20, 79, 30]);
+// isValidWalk(["n", "s", "n", "s", "n", "s", "n", "s", "n", "s"]); //Should Return True
+
+// isValidWalk(["n", "n", "n", "s", "n", "s", "n", "s", "n", "s"]); //False
+
+// isValidWalk(["w"]);
+
+// isValidWalk(["w", "e", "w", "e", "w", "e", "w", "e", "w", "e", "w", "e"]);
+
+isValidWalk(["n", "s", "n", "s", "n", "s", "n", "s", "n", "s", "n", "s"]);
