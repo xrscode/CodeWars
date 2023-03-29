@@ -1,37 +1,19 @@
-"strict";
-
-function sumArray(array) {
-  let sum = 0;
-
-  if (Array.isArray(array) && array.length > 2 && !array.some(isNaN)) {
-    array.sort(function (a, b) {
-      return a - b;
-    });
-
-    for (let i = 1; i < array.length - 1; i++) {
-      sum = sum + array[i];
+function copyList(l) {
+  //your code here
+  let arr = [];
+  console.log(`L is ${l}`);
+  console.log(`L is an array? ${Array.isArray(l)}`);
+  if (Array.isArray(l)) {
+    for (let i = 0; i < l.length; i++) {
+      arr.push(l[i]);
     }
   } else {
-    sum = 0;
+    console.log("undefined");
+    return undefined;
   }
-  console.log(`The sum of array number is ${sum}`);
-  return sum;
+  console.log(`arr is: ${arr}`);
 }
 
-//Array Testing
-let test1 = []; //Should equal 0
-let test2 = [null]; //Should equal 0
-let test3 = [5, 3, "hat"]; //should equal 0
-let test4 = [1, 2]; // Should equal 0
-let test5 = [null, 5, 1]; //Should return 1
-let test6 = [6, 2, 1, 8, 10]; //Should return 16
-let test7 = []; // should return 0
-
-//console.log(array(test2))
-sumArray(test1);
-sumArray(test2);
-sumArray(test3);
-sumArray(test4);
-sumArray(test5);
-sumArray(test6);
-sumArray(test7);
+//copyList([1, 2, 3, 4]);
+copyList(1, 2, 3, 4);
+copyList([1, 29, 31, 90, 55, 88, 61, 20, 79, 30]);
